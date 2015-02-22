@@ -16,9 +16,15 @@ totalBaltMoto <- tapply(baltMoto$Emissions,
                       sum)
 
 ## Plot graph
+png("./plots/plot5.png")
 options(scipen=20) # gives correct number format
 barplot(totalBaltMoto, 
         unique(pm25data$year),
         axis.lty=1, 
         cex.axis=0.6, 
-        col="orange") # plots graph
+        col="orange",
+        xlab ="Year",
+        ylab="pm25 Emissions",
+        main="Total pm25 emissions 
+        produced by motor vehicles in Baltimore by year") # plots graph
+dev.off()

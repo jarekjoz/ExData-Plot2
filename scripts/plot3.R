@@ -47,11 +47,18 @@ allTypes <- rbind(pointSum,
 rownames(allTypes) <- NULL
 
 ## Generate barplots for each source of pm25
-qplot(year, 
+png("./plots/plot3.png")
+library(ggplot2)
+plot3 <- qplot(year, 
       totalEmissions,
       data = allTypes,
       color	= type,
       geom	= "bar", 
       stat = "identity", 
       fill = type, 
-      facets = .~type)	
+      facets = .~type,
+      xlab="Year",
+      ylab="Emissions",
+      main="Total pm25 emissions broken down by source")
+print(plot3)
+dev.off()

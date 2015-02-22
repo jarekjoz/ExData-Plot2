@@ -20,6 +20,7 @@ totalLAMoto <- tapply(LAMoto$Emissions,  # LA
                         sum)
 
 ## Plot graph
+png("./plots/plot6.png")
 options(scipen=20) # gives correct number format
 par(mfrow=c(1,2))
 
@@ -29,7 +30,12 @@ barplot(totalBaltMoto,
         axis.lty=1, 
         cex.axis=0.6, 
         col="orange",
-        ylim=c(0,13000))
+        ylim=c(0,13000),
+        xlab ="Year",
+        ylab="pm25 Emissions",
+        main="Total pm25 emissions 
+        from motor vehicles 
+        in Baltimore by year")
 
 # Plots graph for LA
 barplot(totalLAMoto, 
@@ -37,4 +43,10 @@ barplot(totalLAMoto,
         axis.lty=1, 
         cex.axis=0.6, 
         col="green",
-        ylim=c(0,13000))
+        ylim=c(0,13000),
+        xlab ="Year",
+        ylab="pm25 Emissions",
+        main="Total pm25 emissions 
+        from motor vehicles 
+        in LA county by year")
+dev.off()
